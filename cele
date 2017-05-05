@@ -1,0 +1,11 @@
+Istnieją trzy typy pozwalające na przechowywanie czasu i daty oraz dwa w jednym:
+- java.sql.Date
+- java.sql.Time
+- java.sql.Timestamp (2 w 1)
+
+Są to wrappery klas java.util.Date oraz java.util.Calendar, stworzone po to aby driver nie
+musiał się domyślać czy chcemy przechowywać datę z czasem, czy samą datę itp.
+
+Jeżeli chcemy używać klas z java.util, musimy dodać nad polem adnotację 
+@Temporal, która jako argument przyjmuje (TemporalType.DATE, TemporalType.TIME, 
+TemporalType.TIMESTAMP) -> wtedy driver wie w jaki sposób zapisać to pole w bazie.
